@@ -45,13 +45,13 @@ def temp_file(root_dir=None):
 
 def build_grab(*args, **kwargs):
     """Builds the Grab instance with default options."""
-    kwargs.setdefault('transport', GLOBAL['transport']) 
+    kwargs.setdefault('transport', GLOBAL['transport'])
     return Grab(*args, **kwargs)
 
 
 def build_spider(cls, **kwargs):
     """Builds the Spider instance with default options. Also handles
-    `--mp-mode` option that is configured globally."""
+ `--mp-mode` option that is configured globally."""
     kwargs.setdefault('mp_mode', GLOBAL['mp_mode'])
     if kwargs['mp_mode']:
         kwargs.setdefault('parser_pool_size', 2)
@@ -104,7 +104,7 @@ def start_server():
         except Exception as ex:
             logger.error('', exc_info=ex)
             time.sleep(0.1)
-        else:
+ else:
             ok = True
             break
     socket.setdefaulttimeout(old_timeout)
@@ -147,3 +147,4 @@ def only_transport(*names):
                 return None
         return caller
     return decorator
+                                                                 
